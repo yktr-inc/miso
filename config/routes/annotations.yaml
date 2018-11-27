@@ -1,9 +1,13 @@
 controllers_back:
-    resource: ../../src/Controller/back
+    resource: ../../src/Controller/Back
     type: annotation
     prefix: /admin
 
 controllers_front:
-    resource: ../../src/Controller/front
+    resource: ../../src/Controller/Front
     type: annotation
     prefix: /
+
+controllers:
+    resource: ../../src/Controller
+    type: annotation

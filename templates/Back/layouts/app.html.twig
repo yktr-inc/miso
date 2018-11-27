@@ -6,7 +6,8 @@
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
-    {% include "front/layouts/navbar.html.twig" %}
+        {% include "Back/layouts/navbar.html.twig" %}
+        {% block breadcrum %}{% endblock %}
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
     </body>
