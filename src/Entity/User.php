@@ -31,7 +31,7 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="string", length=180, unique=true)
      */
-    private $username;
+    private $name;
 
     /**
      * @ORM\Column(type="json")
@@ -44,19 +44,18 @@ class User implements UserInterface
      */
     private $password;
 
-
     /**
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="text", nullable=true)
      */
     private $bio;
     
     /**
-     * @ORM\Column(type="string",length=100)
+     * @ORM\Column(type="string",length=100, nullable=true)
      */
     private $firstname;
 
     /**
-     * @ORM\Column(type="string",length=100)
+     * @ORM\Column(type="string",length=100, nullable=true)
      */
     private $lastname;
 
