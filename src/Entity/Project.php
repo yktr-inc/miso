@@ -28,7 +28,7 @@ class Project
     private $title;
 
     /**
-     * @ORM\Column(type="slug",length=255)
+     * @ORM\Column(type="string",length=255)
      */
     private $slug;
 
@@ -96,7 +96,7 @@ class Project
         return $this;
     }
 
-    public function getSlug()
+    public function getSlug(): ?string
     {
         return $this->slug;
     }
