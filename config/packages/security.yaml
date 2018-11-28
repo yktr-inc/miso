@@ -1,7 +1,7 @@
 security:
     encoders:
         App\Entity\User:
-            algorithm: argon2i
+            algorithm: bcrypt
 
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     providers:
@@ -10,34 +10,27 @@ security:
             entity:
                 class: App\Entity\User
                 property: email
+
     firewalls:
-        dev:
-            pattern: ^/(_(profiler|wdt)|css|images|js)/
-            security: false
-        main:
-            anonymous: true
-            guard:
-                authenticators:
-                    - App\Security\AppAuthAuthenticator
-            remember_me:
-                secret:   '%kernel.secret%'
-                lifetime: 604800 # 1 week in seconds
-                path:     /
-                # by default, the feature is enabled by checking a
-                # checkbox in the login form (see below), uncomment the
-                # following line to always enable it.
-                #always_remember_me: true
+      dev:
+        pattern: ^/(_(profiler|wdt)|css|images|js)/
+        security: false
+      main:
+        anonymous: true
 
-            # activate different ways to authenticate
+        form_login:
+          check_path: app_front_security_login
+          login_path: app_front_security_login
+          #default_target_path: app_front_default_home
 
-            # http_basic: true
-            # https://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
+        logout:
+          path: /logout
+          target: /
 
-            # form_login: true
-            # https://symfony.com/doc/current/security/form_login_setup.html
+    role_hierarchy:
+        ROLE_DEV: ROLE_USER
+        ROLE_ADMIN: ROLE_USER
+        ROLE_SUPER_ADMIN: [ROLE_ADMIN, ROLE_DEV]
 
-    # Easy way to control access for large sections of your site
-    # Note: Only the *first* access control that matches will be used
     access_control:
-        # - { path: ^/admin, roles: ROLE_ADMIN }
-        # - { path: ^/profile, roles: ROLE_USER }
+        - { path: ^/admin, roles: ROLE_ADMIN }

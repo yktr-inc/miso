@@ -1,5 +1,5 @@
 <?php
-namespace App\Controller\back;
+namespace App\Controller\Front;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
@@ -12,6 +12,6 @@ class IndexController extends AbstractController
      */
     public function index()
     {
-        return $this->render('back/index.html.twig');
+        return $this->render('Front/index.html.twig');
     }
 }

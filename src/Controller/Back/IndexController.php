@@ -1,5 +1,5 @@
 <?php
-namespace App\Controller\front;
+namespace App\Controller\Back;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
@@ -7,11 +7,11 @@ use Symfony\Component\Routing\Annotation\Route;
 class IndexController extends AbstractController
 {
     /**
-     * @Route("/", methods={"GET"})
+     * @Route("/admin", methods={"GET"})
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function index()
     {
-        return $this->render('front/index.html.twig');
+        return $this->render('Front/index.html.twig');
     }
 }
