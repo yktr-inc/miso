@@ -44,19 +44,18 @@ class User implements UserInterface
      */
     private $password;
 
-
     /**
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="text", nullable=true)
      */
     private $bio;
     
     /**
-     * @ORM\Column(type="string",length=100)
+     * @ORM\Column(type="string",length=100, nullable=true)
      */
     private $firstname;
 
     /**
-     * @ORM\Column(type="string",length=100)
+     * @ORM\Column(type="string",length=100, nullable=true)
      */
     private $lastname;
 
@@ -94,7 +93,6 @@ class User implements UserInterface
         $this->projects = new ArrayCollection();
     }
 
-
     public function getId(): ?int
     {
         return $this->id;
@@ -119,7 +117,7 @@ class User implements UserInterface
      */
     public function getUsername(): string
     {
-        return (string) $this->email;
+        return (string) $this->username;
     }
 
     /**
